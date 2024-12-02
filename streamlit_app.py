@@ -6,7 +6,7 @@ import numpy as np
 st.title("Phase Fold and visualise lightcurves")
 
 # File uploader
-uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
+uploaded_file = st.file_uploader("Upload a CSV file containing the lightcurve", type="csv")
 if uploaded_file:
     # Read uploaded CSV
     df = pd.read_csv(uploaded_file)

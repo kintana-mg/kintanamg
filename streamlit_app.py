@@ -21,17 +21,20 @@ if uploaded_file:
 
     if st.button("Plot"):
         # Extract columns
-        x = df[x_column]
-        y = df[y_column]
+        x = df[x_column].values
+        y = df[y_column].values
         
         # Plot original lightcurve
         st.subheader("Original Lightcurve")
         plt.figure(figsize=(8, 4))
         plt.plot(x, y, 'o', markersize=2, label="Original Lightcurve")
-        plt.xlabel("Time")
-        plt.ylabel("Magnitude/Flux")
+        plt.xlabel("Time",fontsize=18)
+        plt.ylabel("Magnitude/Flux",fontsize=18)
         plt.gca().invert_yaxis()  # Typical for magnitude plots
         plt.title("Original Lightcurve")
+        plt.xticks(fontsize=18)
+        plt.yticks(fontsize=18)
+        
         # plt.legend()
         st.pyplot(plt)
 
@@ -47,10 +50,12 @@ if uploaded_file:
             st.subheader("Phase-Folded Lightcurve")
             plt.figure(figsize=(8, 4))
             plt.plot(phase, y, 'o', markersize=2, label="Phase-Folded Lightcurve")
-            plt.xlabel("Phase")
-            plt.ylabel("Magnitude/Flux")
+            plt.xlabel("Phase",fontsize=18)
+            plt.ylabel("Magnitude/Flux",fontsize=18)
             plt.gca().invert_yaxis()  # Typical for magnitude plots
             plt.title(f"Phase-Folded Lightcurve (Period = {period_days} days)")
+            plt.xticks(fontsize=18)
+            plt.yticks(fontsize=18)
             plt.legend()
             st.pyplot(plt)
         else:

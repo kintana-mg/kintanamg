@@ -19,7 +19,7 @@ if uploaded_file:
     # Input for period in days
     period_days = st.number_input("Enter the period in days for phase folding:", min_value=0.0)
 
-    if st.button("Analyze"):
+    if st.button("Plot"):
         # Extract columns
         x = df[x_column]
         y = df[y_column]

@@ -27,7 +27,7 @@ if uploaded_file:
         # Plot original lightcurve
         st.subheader("Original Lightcurve")
         plt.figure(figsize=(8, 4))
-        plt.plot(x, y, 'o', markersize=2, label="Original Lightcurve")
+        plt.plot(x, y, 'o', markersize=5, label="Original Lightcurve")
         plt.xlabel("Time",fontsize=18)
         plt.ylabel("Magnitude/Flux",fontsize=18)
         plt.gca().invert_yaxis()  # Typical for magnitude plots
@@ -49,7 +49,8 @@ if uploaded_file:
             # Plot phase-folded lightcurve
             st.subheader("Phase-Folded Lightcurve")
             plt.figure(figsize=(8, 4))
-            plt.plot(phase, y, 'o', markersize=2, label="Phase-Folded Lightcurve")
+            plt.plot(phase, y, 'ok', markersize=5, label="Phase-Folded Lightcurve")
+            plt.plot(phase+1, y, 'ok', markersize=5)
             plt.xlabel("Phase",fontsize=18)
             plt.ylabel("Magnitude/Flux",fontsize=18)
             plt.gca().invert_yaxis()  # Typical for magnitude plots

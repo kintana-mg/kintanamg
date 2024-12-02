@@ -57,7 +57,7 @@ if uploaded_file:
             plt.title(f"Phase-Folded Lightcurve (Period = {period_days} days)")
             plt.xticks(fontsize=18)
             plt.yticks(fontsize=18)
-            plt.legend()
+            # plt.legend()
             st.pyplot(plt)
         else:
             st.warning("Please enter a valid period in days to phase-fold the lightcurve.")

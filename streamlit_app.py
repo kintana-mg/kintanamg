@@ -17,7 +17,7 @@ if uploaded_file:
     y_column = st.selectbox("Select Magnitude/Flux Column (Y)", df.columns)
 
     # Input for period in days
-    period_days = st.number_input("Enter the period in days for phase folding:", min_value=0.0, step=0.1)
+    period_days = st.number_input("Enter the period in days for phase folding:", min_value=0.0)
 
     if st.button("Analyze"):
         # Extract columns
@@ -32,13 +32,13 @@ if uploaded_file:
         plt.ylabel("Magnitude/Flux")
         plt.gca().invert_yaxis()  # Typical for magnitude plots
         plt.title("Original Lightcurve")
-        plt.legend()
+        # plt.legend()
         st.pyplot(plt)
 
         # Check if a valid period is entered
         if period_days > 0:
             # Phase folding
-            phase = (x % period_days) / period_days  # Compute phase
+            phase = (x / period_days) % 1  # Compute phase
             sorted_indices = np.argsort(phase)  # Sort by phase
             phase = phase[sorted_indices]
             y = y[sorted_indices]
